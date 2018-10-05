@@ -2,6 +2,7 @@
     "name": "cli-laravel/onin",
     "description": "CLI Application for dynamic querying database using illuminate",
     "license": "ISC",
+    "version": "1.0",
     "authors": [
         {
             "name": "nincas",
