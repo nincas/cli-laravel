@@ -1,10 +1,10 @@
 # CLI Application
 - based on laravel/illuminate database
 
-# Instruction
+# Instruction/Usage
 - `git clone`
 - `composer update`
-- `touch .en` then copy and paste the contents of `env.example`
+- `touch .env` then copy and paste the contents of `env.example`
 
 # Creating Model
 - `php create models:ModelName`
@@ -16,5 +16,8 @@
 - go to `method_routes.php` file. 
 - then, add a key (method name) value (class path) 
 - it must be exists first.
+
+# Running the application
+`php run`
 
 @onincas.us.openode.io
