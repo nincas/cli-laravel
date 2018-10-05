@@ -1,0 +1,42 @@
+<?php
+
+$arg = $_SERVER['argv'];
+
+$arguments = explode(":", $arg[1]);
+
+echo "Creating $arguments[0].." . PHP_EOL;
+
+if ($arguments[0] == "queries") {
+    $dir = getcwd() . DIRECTORY_SEPARATOR . $arguments[0];
+    $exec = "cd {$dir}";
+    exec($exec);
+
+    $file = $dir . DIRECTORY_SEPARATOR . $arguments[1];
+    $exec = "touch {$file}.php";
+    exec($exec);
+
+    $content = "<?php \n\n namespace Cli\Queries; \n\n trait $arguments[1] {\n\n}";
+
+    $file_to_write = getcwd() . DIRECTORY_SEPARATOR . $arguments[0] . DIRECTORY_SEPARATOR . $arguments[1] . '.php';
+    $file_ = fopen($file_to_write, "w");
+    echo fwrite($file_, $content);
+    fclose($file_);
+
+} else if ($arguments[0] == "models") {
+    $dir = getcwd() . DIRECTORY_SEPARATOR . $arguments[0];
+    $exec = "cd {$dir}";
+    exec($exec);
+
+    $file = $dir . DIRECTORY_SEPARATOR . $arguments[1];
+    $exec = "touch {$file}.php";
+    exec($exec);
+
+    $content = "<?php \n\n namespace Cli\Models; \n\n use Illuminate\Database\Eloquent\Model; \n\n class $arguments[1] extends Model {\n\n}";
+
+    $file_to_write = getcwd() . DIRECTORY_SEPARATOR . $arguments[0] . DIRECTORY_SEPARATOR . $arguments[1] . '.php';
+    $file_ = fopen($file_to_write, "w");
+    fwrite($file_, $content);
+    fclose($file_);
+}
+
+echo "Done..";
