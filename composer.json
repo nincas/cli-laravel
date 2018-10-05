@@ -1,24 +1,30 @@
 {
     "name": "cli-laravel/onin",
-    "description": "CLI Application for querying database",
+    "description": "CLI Application for dynamic querying database using illuminate",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "nincas",
+            "email": "nincas21@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
     "require": {
-        "php":"^7.0",
-        "illuminate/database":"5.6.*",
-        "illuminate/events":"5.6.*",
+        "php": "^7.0",
+        "symfony/dotenv": "3.*",
         "symfony/debug": "3.*",
-        "symfony/dotenv":"3.*",
-        "symfony/var-dumper":"3.*"
+        "symfony/var-dumper": "3.*",
+        "illuminate/database": "5.6.*",
+        "illuminate/events": "5.6.*",
+        "illuminate/pagination": "5.6.*"
     },
     "autoload": {
         "psr-4": {
-            "Cli\\": "",
+            "Cli\\":"",
             "Cli\\Kernel\\": "kernel",
             "Cli\\Models\\": "models",
             "Cli\\Queries\\": "queries",
             "Cli\\Components\\": "components"
-        },
-        "files": [
-            "components/_functions.php"
-        ]
+        }
     }
 }

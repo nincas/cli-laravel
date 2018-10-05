@@ -6,8 +6,9 @@ $arguments = explode(":", $arg[1]);
 
 echo "Creating $arguments[0].." . PHP_EOL;
 
+$dir = getcwd() . DIRECTORY_SEPARATOR . $arguments[0];
+
 if ($arguments[0] == "queries") {
-    $dir = getcwd() . DIRECTORY_SEPARATOR . $arguments[0];
     $exec = "cd {$dir}";
     exec($exec);
 
@@ -19,11 +20,10 @@ if ($arguments[0] == "queries") {
 
     $file_to_write = getcwd() . DIRECTORY_SEPARATOR . $arguments[0] . DIRECTORY_SEPARATOR . $arguments[1] . '.php';
     $file_ = fopen($file_to_write, "w");
-    echo fwrite($file_, $content);
+    fwrite($file_, $content);
     fclose($file_);
 
 } else if ($arguments[0] == "models") {
-    $dir = getcwd() . DIRECTORY_SEPARATOR . $arguments[0];
     $exec = "cd {$dir}";
     exec($exec);
 
@@ -37,6 +37,8 @@ if ($arguments[0] == "queries") {
     $file_ = fopen($file_to_write, "w");
     fwrite($file_, $content);
     fclose($file_);
+} else {
+    die('Mispelling on the command!');
 }
 
 echo "Done..";

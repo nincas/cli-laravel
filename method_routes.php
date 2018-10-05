@@ -6,5 +6,6 @@
  */
 
 $functions = [
+    'test' => '\Cli\Queries\Test',
     'sample' => '\Cli\Queries\Sample'
 ];
